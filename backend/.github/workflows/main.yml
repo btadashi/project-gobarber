@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Correponde a cada passo que o nosso processo de integração contínua vai percorrer
+    steps:
+      # Pega a versão mais recente do nosso código
+      - uses: actions/checkout@v2
+      
+      # Instalar Node.js
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14.x
+      
+      # Instalar as dependências do NPM/Yarn
+      - name: Install dependencies
+        run: yarn
+        
+      # Executar a build
+      - name: Run build
+        run: yarn build
+        
+     # Copiar o código de nossa aplicação para dentro da DigitalOcean
+      - name: Copy code to DigitalOcean
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}  
+          source: ".,!node_modules"
+          target: "~/app/gobarber-backend"
+          
+      # Entrar na DigitalOcean e executar as dependências (yarn)  
+      # Executar as migratons do TyepORM  
+      # Restart servidor Node.js
+      - name: Run production script
+        uses: appleboy/ssh-action@master
+        with:
+           host: ${{ secrets.SSH_HOST }}
+           username: ${{ secrets.SSH_USER }}
+           port: ${{ secrets.SSH_PORT }}
+           key: ${{ secrets.SSH_KEY }}  
+           script: | 
+            cd ~/app/gobarber-backend
+            yarn
+            ./node_modules/.bin/typeorm migration:run
+            pm2 restart gobarber-api
+            
+            
+
+                    
+       
+     
+       
+      
+          
+          
+        
