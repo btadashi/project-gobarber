@@ -17,14 +17,14 @@ Application developed during GoStack Bootcamp
 </p>
 
 ## About
-<p align="justify">Application used to make appointments for barbershop services. This application has been developed during the GoStack Bootcamp using Typescript, Node.js, ReactJS and React Native.</p>
+<p align="justify">Application used to make appointments for barbershop services. The project is divided into back-end (Node.js), front-end (ReactJS) and mobile (React Native).</p>
 
 ## 🛠 Layout
-<p align="justify">You can view the layout accessing this following link: <a href="https://www.figma.com/file/BXCihtXXh9p37lGsENV614/GoBarber?node-id=34%3A1180">Visualize</a>
+<p align="justify">You can view the layout accessing the following link: <a href="https://www.figma.com/file/BXCihtXXh9p37lGsENV614/GoBarber?node-id=34%3A1180">Visualize</a>
 
 ## Technologies
 The project's been developed using the following technologies:
-- Node.JS
+- Node.js
 - Typescript
 - ReactJS
 - React Native
@@ -32,3 +32,19 @@ The project's been developed using the following technologies:
 - PostgreSQL
 - MongoDB
 - Redis
+
+## Getting started
+### Back-end
+```bash
+# Clone this repository
+$ git clone https://github.com/btadashi/project-gobarber.git
+
+# Install all dependencies:
+$ yarn
+
+# Run the migrations:
+$ yarn typeorm migration:run
+
+# Start application:
+$ yarn dev:server
+```
