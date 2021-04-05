@@ -93,7 +93,7 @@ $ yarn android
 1. Fork this repository.
 2. Create a new branch with your changes ```git checkout -b my-feature```
 3. Commit your changes to the branch ```git commit -m "feature: My feature"```
-4. Now just push it ```git push origin my-awesome-feature```
+4. Now just push it ```git push origin my-feature```
 ## License
 This project is under MIT license. 
 ## Author
