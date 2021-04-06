@@ -1,10 +1,8 @@
-Application developed during GoStack Bootcamp
-
 <h1 align="center">
   <img alt="logo" title="gobarber" src=".github/logo.png" />
 </h1>
 <h1 align="center">Project GoBarber</h1>
-<p align="center">ReactJS appliction for GoBarber Project</p>
+<p align="center">ReactJS application for GoBarber Project</p>
 
 <p align="center">
  <a href="#about">About</a> •
@@ -94,7 +92,8 @@ $ yarn android
 2. Create a new branch with your changes ```git checkout -b my-feature```
 3. Commit your changes to the branch ```git commit -m "feature: My feature"```
 4. Now just push it ```git push origin my-feature```
+5. Submit pull request
 ## License
 This project is under MIT license. 
 ## Author
-This project's been developed by <a href="https://www.linkedin.com/in/bruno-yamaguchi/">Bruno Yamaguchi</a>
+This project's been developed by <a href="https://www.linkedin.com/in/bruno-yamaguchi/">Bruno Yamaguchi</a> during GoStack Bootcamp.
